@@ -56,38 +56,49 @@
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
-        <com.binish.photoeditorx.views.CustomTextView
-            android:id="@+id/textViewColorForEdit"
+        <com.binish.photoeditorx.views.CustomImageButton
+            android:id="@+id/imageButtonColorTextPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_color"
             android:elevation="5dp"
-            android:text="Colors"
-            android:padding="5dp"
-            android:textColor="@color/color_white"
-            android:textSize="16sp"
-            app:customTextStyle="bold"
-            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="@id/textViewDoneForEdit"
+            app:layout_constraintBottom_toBottomOf="@id/textViewDoneForEdit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editViewForEdit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.04"
-            app:layout_constraintVertical_bias="0.4"
             />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewColorForEdit"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:elevation="5dp"
-            android:visibility="visible"
-            app:layout_constraintStart_toEndOf="@id/textViewColorForEdit"
+            android:visibility="gone"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textViewColorForEdit"
-            app:layout_constraintBottom_toBottomOf="@id/textViewColorForEdit"
+            app:layout_constraintTop_toBottomOf="@id/editViewForEdit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintVertical_bias="1"
             />
 
-        <com.binish.photoeditorx.views.CustomTextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewStyleForEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:visibility="visible"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editViewForEdit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintVertical_bias="1"
+            />
+
+       <!-- <com.binish.photoeditorx.views.CustomTextView
             android:id="@+id/textViewStyleForEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,18 +115,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintVertical_bias="0.1"
-            />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewStyleForEdit"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:elevation="5dp"
-            android:visibility="visible"
-            app:layout_constraintStart_toEndOf="@id/textViewStyleForEdit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textViewStyleForEdit"
-            app:layout_constraintBottom_toBottomOf="@id/textViewStyleForEdit"
             />
 
         <com.binish.photoeditorx.views.CustomTextView
@@ -216,7 +215,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/textViewStrokeColorForEdit"
             app:layout_constraintBottom_toBottomOf="@id/textViewStrokeColorForEdit"
-            />
+            />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

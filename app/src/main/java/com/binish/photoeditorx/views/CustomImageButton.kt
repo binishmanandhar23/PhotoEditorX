@@ -28,8 +28,17 @@ class CustomImageButton : AppCompatImageButton {
     }
 
     private fun initialSetup() {
+        defaultBackground()
+        setPadding(20)
+    }
+
+    fun changeIcon(resId: Int, backgroundResId: Int){
+        setImageResource(resId)
+        setBackgroundResource(backgroundResId)
+    }
+
+    fun defaultBackground(){
         setBackgroundResource(R.color.color_transparent)
-        setPadding(10)
     }
 
     @SuppressLint("ClickableViewAccessibility")

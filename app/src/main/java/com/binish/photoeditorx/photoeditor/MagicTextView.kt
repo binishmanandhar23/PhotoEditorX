@@ -7,11 +7,12 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.Pair
+import androidx.appcompat.widget.AppCompatTextView
 import com.binish.photoeditorx.R
 import java.util.*
 
 
-class MagicTextView : androidx.appcompat.widget.AppCompatTextView {
+class MagicTextView : AppCompatTextView {
     private var outerShadows: ArrayList<Shadow>? = null
     private var innerShadows: ArrayList<Shadow>? = null
     private var canvasStore: WeakHashMap<String, Pair<Canvas, Bitmap?>>? = null

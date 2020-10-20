@@ -2,11 +2,9 @@ package com.binish.photoeditorx.utils
 
 import android.R.attr
 import android.content.Context
+import android.content.res.AssetManager
 import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Matrix
-import android.graphics.Picture
+import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
@@ -70,5 +68,38 @@ object Utils {
         val canvas = Canvas(bitmap)
         view.draw(canvas)
         return bitmap
+    }
+
+    fun getColors(): ArrayList<Int> {
+        val colorsList = ArrayList<Int>()
+        colorsList.add(R.color.color_white)
+        colorsList.add(R.color.color_black)
+        colorsList.add(R.color.colorLightPeach)
+        colorsList.add(R.color.color_black)
+        colorsList.add(R.color.color_orange)
+        colorsList.add(R.color.colorTwilight)
+        colorsList.add(R.color.color_purple_dark)
+        colorsList.add(R.color.colorDarkGreyBlue)
+        colorsList.add(R.color.colorSea)
+        colorsList.add(R.color.colorDarkTeal)
+        colorsList.add(R.color.colorBrownGrey)
+        colorsList.add(R.color.color_blue)
+        return colorsList
+    }
+
+    fun getTextStyle(assets: AssetManager): List<Typeface> {
+        val typefaceList = ArrayList<Typeface>()
+        val fontsName = assets.list("fonts/editFonts")
+        if (fontsName != null) {
+            for (i in fontsName.indices) {
+                typefaceList.add(
+                    Typeface.createFromAsset(
+                        assets,
+                        "fonts/editFonts/${fontsName[i]}"
+                    )
+                )
+            }
+        }
+        return typefaceList
     }
 }
