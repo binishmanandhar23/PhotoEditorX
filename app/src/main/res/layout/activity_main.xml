@@ -40,4 +40,88 @@
         app:layout_constraintVertical_bias="0.05"
         />
 
+    <com.binish.photoeditorx.views.CustomImageButton
+        android:id="@+id/textViewLeftAlignForEdit"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:elevation="1dp"
+        android:textSize="16sp"
+        android:visibility="visible"
+        android:src="@drawable/ic_camera_text_align_start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.08"
+        />
+
+    <com.binish.photoeditorx.views.CustomImageButton
+        android:id="@+id/textViewCenterAlignForEdit"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:elevation="1dp"
+        android:src="@drawable/ic_camera_text_align_center"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@id/textViewLeftAlignForEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textViewLeftAlignForEdit"
+        app:layout_constraintBottom_toBottomOf="@id/textViewLeftAlignForEdit"
+        app:layout_constraintHorizontal_bias="0.05"
+        />
+
+    <com.binish.photoeditorx.views.CustomImageButton
+        android:id="@+id/textViewRightAlignForEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:src="@drawable/ic_camera_text_align_end"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@id/textViewCenterAlignForEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textViewLeftAlignForEdit"
+        app:layout_constraintBottom_toBottomOf="@id/textViewLeftAlignForEdit"
+        app:layout_constraintHorizontal_bias="0.05"
+        />
+
+    <com.binish.photoeditorx.views.CustomTextView
+        android:id="@+id/textViewJustifyAlignForEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Justify"
+        android:textColor="@color/color_white"
+        android:elevation="1dp"
+        app:customTextStyle="bold"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@id/textViewRightAlignForEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textViewLeftAlignForEdit"
+        app:layout_constraintBottom_toBottomOf="@id/textViewLeftAlignForEdit"
+        app:layout_constraintHorizontal_bias="0.03"
+        />
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/editLayoutContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutDescription="@xml/add_edit_text_scene"
+        >
+        <include
+            android:id="@+id/layoutEdit"
+            layout="@layout/layout_add_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

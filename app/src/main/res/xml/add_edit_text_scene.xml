@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Transition
+        app:duration="300"
+        app:constraintSetStart="@id/motionStart"
+        app:constraintSetEnd="@id/motionEnd"
+        android:id="@+id/addEditTextTransition"
+        />
+
+    <ConstraintSet android:id="@+id/motionStart">
+        <Constraint
+            android:id="@+id/layoutEdit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/motionEnd">
+        <Constraint
+            android:id="@+id/layoutEdit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </ConstraintSet>
+
+</MotionScene>

@@ -5,12 +5,16 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.binish.photoeditorx.utils.Utils
+import jp.wasabeef.blurry.Blurry
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_add_edit_text.*
 
 class MainActivity : AppCompatActivity() {
     private var imageRotation = 0f
@@ -21,14 +25,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setUpImage()
         setUpRotation()
+        setUpTextAddition()
     }
 
-    private fun setUpImage(){
+    private fun setUpImage() {
         photoEditorView.source?.setImageResource(R.drawable.default_image)
         photoEditorView.source?.scaleType = ImageView.ScaleType.FIT_CENTER
     }
 
-    private fun setUpRotation(){
+    private fun setUpTextAddition() {
+        photoEditorView.setOnClickListener {
+            Blurry.with(this).animate(10).radius(20).async().color(R.color.color_black_transparent)
+                .from(Utils.takeScreenshot(photoEditorView.source!!)).into(viewForEdit)
+            editLayoutContainer.transitionToEnd()
+            editViewForEdit.focusAndShowKeyboard()
+        }
+
+        textViewDoneForEdit.setOnClickListener {
+            editViewForEdit.hideSoftKeyboard()
+            editViewForEdit.postDelayed({
+                editLayoutContainer.transitionToStart()
+            },50)
+        }
+    }
+
+    private fun setUpRotation() {
         imageButtonRotateLeft.setOnClickListener {
             imageRotation = when (imageRotation) {
                 0f -> 270f
@@ -55,9 +76,16 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun rotateWork(){
+    private fun rotateWork() {
         Thread {
-            imageBitmap.postValue(Utils.rotateBitmap(BitmapFactory.decodeResource(resources, R.drawable.default_image), imageRotation))
+            imageBitmap.postValue(
+                Utils.rotateBitmap(
+                    BitmapFactory.decodeResource(
+                        resources,
+                        R.drawable.default_image
+                    ), imageRotation
+                )
+            )
         }.start()
     }
 }

@@ -14,6 +14,7 @@ import android.util.DisplayMetrics
 import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.binish.photoeditorx.R
 
 
@@ -49,20 +50,6 @@ object Utils {
         return bitmap
     }
 
-    fun getRotateDrawable(resources: Resources,b: BitmapDrawable?, angle: Float): BitmapDrawable? {
-        if(b != null) {
-            return object : BitmapDrawable(resources, b.bitmap) {
-                override fun draw(canvas: Canvas) {
-                    canvas.save()
-                    canvas.rotate(angle, b.bitmap.width / 2f, b.bitmap.height / 2f)
-                    super.draw(canvas)
-                    canvas.restore()
-                }
-            }
-        }
-        return null
-    }
-
     fun rotateBitmap(source: Bitmap, angle: Float): Bitmap? {
         val matrix = Matrix()
         matrix.postRotate(angle)
@@ -75,5 +62,13 @@ object Utils {
             matrix,
             true
         )
+    }
+
+    fun takeScreenshot(view: View): Bitmap {
+        val bitmap =
+            Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+        return bitmap
     }
 }
