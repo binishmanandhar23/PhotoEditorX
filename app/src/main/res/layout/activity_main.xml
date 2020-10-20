@@ -6,13 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <com.binish.photoeditorx.photoeditor.PhotoEditorView
+        android:id="@+id/photoEditorView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.binish.photoeditorx.views.CustomImageButton
+        android:id="@+id/imageButtonRotateLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_rotate_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintVertical_bias="0.15"
+        />
+
+    <com.binish.photoeditorx.views.CustomImageButton
+        android:id="@+id/imageButtonRotateRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_rotate_right"
+        app:layout_constraintStart_toStartOf="@id/imageButtonRotateLeft"
+        app:layout_constraintEnd_toEndOf="@id/imageButtonRotateLeft"
+        app:layout_constraintTop_toBottomOf="@id/imageButtonRotateLeft"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.05"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

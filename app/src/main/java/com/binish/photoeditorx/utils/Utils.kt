@@ -1,16 +1,21 @@
 package com.binish.photoeditorx.utils
 
+import android.R.attr
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Matrix
 import android.graphics.Picture
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
 import android.util.DisplayMetrics
 import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.animation.AnimationUtils
 import com.binish.photoeditorx.R
+
 
 object Utils {
     fun dp2px(dp: Float): Int {
@@ -34,9 +39,41 @@ object Utils {
 
     fun pictureDrawable2Bitmap(picture: Picture): Bitmap? {
         val pd = PictureDrawable(picture)
-        val bitmap = Bitmap.createBitmap(pd.intrinsicWidth, pd.intrinsicHeight, Bitmap.Config.ARGB_8888)
+        val bitmap = Bitmap.createBitmap(
+            pd.intrinsicWidth,
+            pd.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+        )
         val canvas = Canvas(bitmap)
         canvas.drawPicture(pd.picture)
         return bitmap
+    }
+
+    fun getRotateDrawable(resources: Resources,b: BitmapDrawable?, angle: Float): BitmapDrawable? {
+        if(b != null) {
+            return object : BitmapDrawable(resources, b.bitmap) {
+                override fun draw(canvas: Canvas) {
+                    canvas.save()
+                    canvas.rotate(angle, b.bitmap.width / 2f, b.bitmap.height / 2f)
+                    super.draw(canvas)
+                    canvas.restore()
+                }
+            }
+        }
+        return null
+    }
+
+    fun rotateBitmap(source: Bitmap, angle: Float): Bitmap? {
+        val matrix = Matrix()
+        matrix.postRotate(angle)
+        return Bitmap.createBitmap(
+            source,
+            0,
+            0,
+            source.width,
+            source.height,
+            matrix,
+            true
+        )
     }
 }
