@@ -237,8 +237,7 @@ class MainActivity : AppCompatActivity() {
             seekBarFontSizeForEdit.max = if (isChecked) 100 else 50
         }
 
-        seekBarFontSizeForEdit.progress =
-            if (toggleButtonStroke.isChecked) (strokeWidth * 42f).toInt() else (textStyle.textSize - 18).toInt()
+//        seekBarFontSizeForEdit.progress = if (toggleButtonStroke.isChecked) (strokeWidth * 42f).toInt() else (textStyle.textSize - 18).toInt()
         seekBarFontSizeForEdit.max = if (toggleButtonStroke.isChecked) 100 else 50
         seekBarFontSizeForEdit.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
