@@ -19,6 +19,39 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
+        <com.binish.photoeditorx.views.CustomImageButton
+            android:id="@+id/textViewAlignForEdit"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:elevation="3dp"
+            android:textSize="16sp"
+            android:visibility="visible"
+            android:src="@drawable/ic_camera_text_align_center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imageButtonColorTextPicker"
+            app:layout_constraintTop_toTopOf="@id/imageButtonColorTextPicker"
+            app:layout_constraintBottom_toBottomOf="@id/imageButtonColorTextPicker"
+            app:layout_constraintHorizontal_bias="0.88"
+            />
+
+
+        <com.binish.photoeditorx.views.CustomTextView
+            android:id="@+id/textViewJustifyAlignForEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Justify"
+            android:textColor="@color/color_white"
+            android:elevation="1dp"
+            app:customTextStyle="bold"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@id/textViewAlignForEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textViewAlignForEdit"
+            app:layout_constraintBottom_toBottomOf="@id/textViewAlignForEdit"
+            app:layout_constraintHorizontal_bias="0.03"
+            />
+
         <com.binish.photoeditorx.views.CustomTextView
             android:id="@+id/textViewDoneForEdit"
             android:layout_width="wrap_content"
@@ -68,6 +101,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
+        <ToggleButton
+            android:id="@+id/toggleButtonStroke"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/camera_edit_color_button"
+            android:textColor="@color/color_white"
+            android:textOff="A"
+            android:textOn="A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageButtonColorTextPicker"
+            app:layout_constraintTop_toTopOf="@id/imageButtonColorTextPicker"
+            app:layout_constraintBottom_toBottomOf="@id/imageButtonColorTextPicker"
+            app:layout_constraintHorizontal_bias="0.08"
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewColorForEdit"
             android:layout_width="0dp"
@@ -81,6 +129,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintVertical_bias="1"
+            />
+
+        <com.binish.photoeditorx.views.VerticalSeekBar
+            android:id="@+id/seekBarFontSizeForEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:elevation="5dp"
+            android:progressTint="@color/color_white"
+            android:thumbTint="@color/color_white"
+            android:visibility="visible"
+            android:progressBackgroundTint="@color/color_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewDoneForEdit"
+            app:layout_constraintBottom_toTopOf="@id/recyclerViewStyleForEdit"
+            app:layout_constraintHorizontal_bias="0.94"
+            app:layout_constraintVertical_bias="0.4"
             />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -135,22 +200,6 @@
             app:layout_constraintVertical_bias="0.12"
             />
 
-        <SeekBar
-            android:id="@+id/seekBarFontSizeForEdit"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:elevation="5dp"
-            android:progressTint="@color/colorTwilight"
-            android:thumbTint="@color/color_white"
-            android:visibility="visible"
-            android:max="50"
-            android:progressBackgroundTint="@color/color_gray"
-            app:layout_constraintStart_toEndOf="@id/textViewFontSizeForEdit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textViewFontSizeForEdit"
-            app:layout_constraintBottom_toBottomOf="@id/textViewFontSizeForEdit"
-            app:layout_constraintHorizontal_bias="0.1"
-            />
 
         <com.binish.photoeditorx.views.CustomTextView
             android:id="@+id/textViewStrokeWidthForEdit"

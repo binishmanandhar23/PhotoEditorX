@@ -43,6 +43,8 @@ class CustomImageButton : AppCompatImageButton {
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
+        if(!isEnabled)
+            return false
         when (event?.action) {
             MotionEvent.ACTION_UP -> {
                 Utils.pushInAnimation(this, context)

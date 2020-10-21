@@ -6,7 +6,9 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.KeyEvent
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.binish.photoeditorx.R
 import java.util.*
@@ -28,6 +30,7 @@ class CustomEditText : AppCompatEditText {
     private var strokeMiter = 0f
     private lateinit var lockedCompoundPadding: IntArray
     private var frozen = false
+    private var listener: CustomEditTextInteraction? = null
 
     constructor(context: Context) : super(context) {
         initialize(null)
@@ -75,7 +78,12 @@ class CustomEditText : AppCompatEditText {
                 if (background != null) {
                     this.background = background
                 } else {
-                    setBackgroundColor(a.getColor(R.styleable.MagicTextView_textBackground, -0x1000000))
+                    setBackgroundColor(
+                        a.getColor(
+                            R.styleable.MagicTextView_textBackground,
+                            -0x1000000
+                        )
+                    )
                 }
             }
             if (a.hasValue(R.styleable.MagicTextView_innerShadowColor)) {
@@ -132,6 +140,7 @@ class CustomEditText : AppCompatEditText {
             r2 = 0.0001f
         }
         outerShadows!!.add(Shadow(r2, dx, dy, color))
+        invalidate()
     }
 
     fun addInnerShadow(r: Float, dx: Float, dy: Float, color: Int) {
@@ -140,6 +149,7 @@ class CustomEditText : AppCompatEditText {
             r2 = 0.0001f
         }
         innerShadows!!.add(Shadow(r2, dx, dy, color))
+        invalidate()
     }
 
     fun clearInnerShadows() {
@@ -296,15 +306,16 @@ class CustomEditText : AppCompatEditText {
 
     class Shadow(var r: Float, var dx: Float, var dy: Float, var color: Int)
 
-    fun focusAndShowKeyboard() {
+    fun focusAndShowKeyboard(listener: CustomEditTextInteraction) {
         requestFocus()
         showKeyboardDelayed = true
+        this.listener = listener
         maybeShowKeyboard()
     }
 
     @Override
     override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
-        super.onWindowFocusChanged(hasWindowFocus);
+        super.onWindowFocusChanged(hasWindowFocus)
         maybeShowKeyboard()
     }
 
@@ -327,5 +338,17 @@ class CustomEditText : AppCompatEditText {
             val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(windowToken, 0)
         }
+    }
+
+    override fun onKeyPreIme(keyCode: Int, event: KeyEvent): Boolean {
+        if (event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+            listener?.onBackPressedDuringKeyboard()
+            return true
+        }
+        return super.onKeyPreIme(keyCode, event)
+    }
+
+    interface CustomEditTextInteraction{
+        fun onBackPressedDuringKeyboard()
     }
 }
