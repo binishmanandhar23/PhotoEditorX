@@ -48,6 +48,15 @@ object Utils {
         return bitmap
     }
 
+    fun isViewInBounds(view: View, x: Int, y: Int): Boolean {
+        val outRect = Rect()
+        val location = IntArray(2)
+        view.getDrawingRect(outRect)
+        view.getLocationOnScreen(location)
+        outRect.offset(location[0], location[1])
+        return outRect.contains(x, y)
+    }
+
     fun rotateBitmap(source: Bitmap, angle: Float): Bitmap? {
         val matrix = Matrix()
         matrix.postRotate(angle)

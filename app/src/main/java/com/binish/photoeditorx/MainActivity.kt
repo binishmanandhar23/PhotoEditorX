@@ -122,7 +122,8 @@ class MainActivity : AppCompatActivity() {
                 rawX: Int,
                 rawY: Int
             ) {
-
+                if (view != null)
+                    viewDelete.onHideDeleteView(photoEditor, view, rawX, rawY)
             }
 
             override fun onMoveViewChangeListener(
@@ -131,7 +132,8 @@ class MainActivity : AppCompatActivity() {
                 rawX: Int,
                 rawY: Int
             ) {
-
+                if (view != null)
+                    viewDelete.onShowDeleteView(view, isInProgress, rawX, rawY)
             }
 
         })
