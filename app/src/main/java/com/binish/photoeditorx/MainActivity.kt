@@ -325,7 +325,6 @@ class MainActivity : AppCompatActivity() {
             }
             rotateWork()
         }
-
         imageButtonRotateRight.setOnClickListener {
             imageRotation = when (imageRotation) {
                 0f -> 90f
