@@ -26,7 +26,7 @@
     <color name="color_theme_text_bluish">@color/colorBluish</color>
     <color name="color_theme_text_bluish_coming_medicine">#599494</color>
     <color name="color_black">#000000</color>
-    <color name="color_black_transparent">#8F000000</color>
+    <color name="color_black_transparent">#63000000</color>
     <color name="color_black_two">#212121</color>
     <color name="color_black_three">#3b3b3b</color>
     <color name="color_black_l">#050505</color>

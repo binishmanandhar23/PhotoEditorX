@@ -1,6 +1,7 @@
 package com.binish.photoeditorx.utils
 
 import android.R.attr
+import android.app.Activity
 import android.content.Context
 import android.content.res.AssetManager
 import android.content.res.Resources
@@ -8,11 +9,14 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
+import android.os.Build
 import android.util.DisplayMetrics
 import android.view.HapticFeedbackConstants
 import android.view.View
+import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.binish.photoeditorx.R
@@ -66,6 +70,24 @@ object Utils {
         val pushInAnimation = AnimationUtils.loadAnimation(context, R.anim.scale)
         view.startAnimation(pushInAnimation)
         performHapticFeedback(view)
+    }
+
+    fun changeStatusBarColor(activity: Activity, iconsForLightBar: Boolean, color: Int) {
+        val window = activity.window
+        val decor = window?.decorView
+        window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        if (iconsForLightBar) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                decor?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            else
+                decor?.systemUiVisibility = 0
+        } else
+            decor?.systemUiVisibility = 0
+
+        window?.statusBarColor = ContextCompat.getColor(
+            activity,
+            color
+        )
     }
 
     fun pictureDrawable2Bitmap(picture: Picture): Bitmap? {

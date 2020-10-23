@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -12,6 +13,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binish.photoeditorx.adapter.TextEditsAdapter
+import com.binish.photoeditorx.fragments.BottomSheetStickerDialog
 import com.binish.photoeditorx.fragments.ImagePreviewFragment
 import com.binish.photoeditorx.models.StrokeProperties
 import com.binish.photoeditorx.photoeditor.*
@@ -35,16 +37,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Utils.changeStatusBarColor(this, false, R.color.color_black)
         ttCommonBold = Typeface.createFromAsset(assets, "fonts/editFonts/TTCommonBold.otf")
 
         setUpImage()
         setUpRotation()
         setUpTextAddition()
         setUpPhotoEditor()
-        setUpSave()
+        setUpSaveAndStickers()
     }
 
-    private fun setUpSave(){
+    private fun setUpSaveAndStickers() {
         imageButtonSave.setOnClickListener {
             //*Or you can use photoEditor.saveAsFile()*//
 
@@ -65,11 +68,26 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
+
+        imageButtonStickers.setOnClickListener {
+            val bottomSheetStickerDialog = BottomSheetStickerDialog.newInstance(
+                Utils.takeScreenshot(mainActivityContainer),
+                object : BottomSheetStickerDialog.BottomMapDetailFragmentInteraction {
+                    override fun onStickerClicker(bitmap: Bitmap) {
+                        photoEditor.addImage(bitmap)
+                    }
+
+                    override fun onStickerTime(view: View) {
+                        photoEditor.addDynamicSticker(view)
+                    }
+                })
+            bottomSheetStickerDialog.show(supportFragmentManager, "StickerDialog")
+        }
     }
 
     private fun setUpImage() {
         photoEditorView.source?.setImageResource(R.drawable.default_image)
-        photoEditorView.source?.scaleType = ImageView.ScaleType.FIT_CENTER
+        (photoEditorView.source!! as FilterImageView).scaleType = ImageView.ScaleType.CENTER_CROP
     }
 
     private fun setUpTextAddition() {

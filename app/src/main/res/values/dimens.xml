@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="default_text_size">16sp</dimen>
+
+    <dimen name="small_margin">10dp</dimen>
+
+    <dimen name="bottomDialogMarginStart">2dp</dimen>
+    <dimen name="bottomDialogMarginEnd">2dp</dimen>
+    <dimen name="bottomDialogMarginTop">44dp</dimen>
+    <dimen name="bottomDialogMarginBottom">0dp</dimen>
+</resources>

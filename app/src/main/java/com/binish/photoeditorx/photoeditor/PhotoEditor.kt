@@ -23,6 +23,8 @@ import androidx.annotation.IntRange
 import androidx.annotation.RequiresPermission
 import androidx.annotation.UiThread
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.marginStart
+import androidx.core.view.setMargins
 import com.binish.photoeditorx.R
 import java.io.File
 import java.io.FileOutputStream
@@ -31,6 +33,7 @@ import com.binish.photoeditorx.photoeditor.EnumClass.ViewType
 import com.binish.photoeditorx.photoeditor.EnumClass.PhotoFilter
 import com.binish.photoeditorx.photoeditor.EnumClass.ViewType.*
 import com.binish.photoeditorx.utils.Utils
+import com.binish.photoeditorx.views.TimeView
 
 
 /**
@@ -100,6 +103,56 @@ class PhotoEditor private constructor(builder: Builder) :
         })
         imageRootView.setOnTouchListener(multiTouchListener)
         addViewToParent(imageRootView, IMAGE)
+    }
+
+    fun addDynamicSticker(view: View?) {
+        val imageRootView = getLayout(DYNAMIC_STICKERS)
+        val frmBorder = imageRootView?.findViewById<FrameLayout>(R.id.frmBorder)
+        val imgClose = imageRootView?.findViewById<ImageView>(R.id.imgPhotoEditorClose)
+
+        val multiTouchListener = multiTouchListener
+        multiTouchListener.setOnGestureControl(object : MultiTouchListener.OnGestureControl {
+            override fun onClick() {
+                val isBackgroundVisible = frmBorder?.tag != null && frmBorder.tag as Boolean
+                frmBorder?.setBackgroundResource(if (isBackgroundVisible) 0 else R.drawable.rounded_border_tv)
+                imgClose?.visibility = if (isBackgroundVisible) View.GONE else View.GONE
+                frmBorder?.tag = !isBackgroundVisible
+                Utils.pushInAnimation(view!!, context)
+                if (view is TimeView)
+                    when (view.timerViewType) {
+                        TimeView.TimerViewType.TYPE_1 -> view.changeView(TimeView.TimerViewType.TYPE_2)
+                        TimeView.TimerViewType.TYPE_2 -> view.changeView(TimeView.TimerViewType.TYPE_1)
+                        else -> view.changeView(TimeView.TimerViewType.TYPE_1)
+                    }
+            }
+
+            override fun onLongClick() {}
+            override fun onScaleBegin() {
+                frmBorder?.setBackgroundResource(R.drawable.rounded_border_tv)
+                imgClose?.visibility = View.GONE
+                frmBorder?.tag = true
+            }
+
+            override fun onScaleEnd() {
+                val handler = Handler(Looper.getMainLooper())
+                handler.postDelayed({
+                    frmBorder?.setBackgroundResource(0)
+                    imgClose?.visibility = View.GONE
+                    frmBorder?.tag = false
+                }, borderVisibilityDelay.toLong())
+            }
+        })
+        val params = FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.WRAP_CONTENT,
+            FrameLayout.LayoutParams.WRAP_CONTENT
+        )
+        params.gravity = Gravity.CENTER
+        params.setMargins(4)
+        view?.layoutParams = params
+        frmBorder?.addView(view)
+        imageRootView?.setOnTouchListener(multiTouchListener)
+
+        addViewToParent(imageRootView, DYNAMIC_STICKERS)
     }
 
 
@@ -359,6 +412,8 @@ class PhotoEditor private constructor(builder: Builder) :
                     txtTextEmoji.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
                 }
             }
+            DYNAMIC_STICKERS ->
+                rootView = mLayoutInflater.inflate(R.layout.view_photo_editor_dynamic_sticker, null)
         }
         if (rootView != null) {
             //We are setting tag as ViewType to identify what type of the view it is

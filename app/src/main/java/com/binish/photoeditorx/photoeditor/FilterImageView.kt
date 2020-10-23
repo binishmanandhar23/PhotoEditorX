@@ -38,6 +38,11 @@ internal class FilterImageView : AppCompatImageView {
         fun onBitmapLoaded(sourceBitmap: Bitmap?)
     }
 
+    override fun setScaleType(scaleType: ScaleType?) {
+        super.setScaleType(scaleType)
+        mOnImageChangedListener?.onBitmapLoaded(bitmap)
+    }
+
     override fun setImageBitmap(bm: Bitmap) {
         super.setImageBitmap(bm)
         mOnImageChangedListener?.onBitmapLoaded(bitmap)
