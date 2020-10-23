@@ -82,6 +82,8 @@ In order to edit the text we need the view, which we will receive in our PhotoEd
             }
         });
   ```
+
+![](https://i.imgur.com/uFOrB3F.gif)
 Now we can edit the text with a view like this
 
 `mPhotoEditor.editText(rootView, inputText, colorCode)`
