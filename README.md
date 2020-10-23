@@ -124,7 +124,9 @@ It will take default fonts provided in the builder. If we want different Emoji f
 
 
 ## Adding Images/Stickers
- We need to provide a Bitmap to add our Images  `mPhotoEditor.addImage(bitmap);`
+
+![](https://i.imgur.com/mxgwagK.gif)  
+We need to provide a Bitmap to add our Images  `mPhotoEditor.addImage(bitmap);`
 
  To add dynamic stickers such as Current Time or Date we need to use  
  `photoEditor.addDynamicSticker(TimeView(requireContext())` for time  
