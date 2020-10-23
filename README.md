@@ -63,7 +63,7 @@ That's it we are done with setting up our library
 
 ## Text
 
-<img src ='./misc/add_texts.gif'>
+![](https://i.imgur.com/iRAFuaN.gif)
 
 We can add the text with inputText and colorCode like this
 
