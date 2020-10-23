@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         textStyle.withTextFont(ttCommonBold)
         textStyle.withTextColor(ContextCompat.getColor(this, R.color.color_white))
         textStyle.withTextSize(textSize)
-        textStyle.withTextAlign(TextView.TEXT_ALIGNMENT_TEXT_START)
+        textStyle.withTextAlign(TextView.TEXT_ALIGNMENT_CENTER)
         setUpEditView()
 
         photoEditorView.setOnClickListener {
@@ -237,6 +237,7 @@ class MainActivity : AppCompatActivity() {
                         R.color.color_transparent
                     )
                     editViewForEdit.textAlignment = EditText.TEXT_ALIGNMENT_CENTER
+                    textStyle.withTextAlign(EditText.TEXT_ALIGNMENT_CENTER)
                 }
                 EditText.TEXT_ALIGNMENT_CENTER -> {
                     textViewAlignForEdit.changeIcon(
@@ -244,6 +245,7 @@ class MainActivity : AppCompatActivity() {
                         R.color.color_transparent
                     )
                     editViewForEdit.textAlignment = EditText.TEXT_ALIGNMENT_TEXT_END
+                    textStyle.withTextAlign(EditText.TEXT_ALIGNMENT_TEXT_END)
                 }
                 EditText.TEXT_ALIGNMENT_TEXT_END -> {
                     textViewAlignForEdit.changeIcon(
@@ -251,6 +253,7 @@ class MainActivity : AppCompatActivity() {
                         R.color.color_transparent
                     )
                     editViewForEdit.textAlignment = EditText.TEXT_ALIGNMENT_TEXT_START
+                    textStyle.withTextAlign(EditText.TEXT_ALIGNMENT_TEXT_START)
                 }
             }
         }
