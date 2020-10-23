@@ -13,6 +13,8 @@ import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.binish.photoeditorx.R
 
 
@@ -23,6 +25,36 @@ object Utils {
 
     fun px2dp(px: Float): Float {
         return (px - 0.5f) / (Resources.getSystem().displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+    }
+
+    fun startFragment(
+        fragment: Fragment,
+        supportFragmentManager: FragmentManager,
+        containerViewId: Int,
+        slide: Boolean,
+        replace: Boolean,
+        addToBackStack: String?
+    ) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.setCustomAnimations(
+            if (slide) R.anim.push_up_in else R.anim.enter_from_right,
+            if (slide) R.anim.push_up_out else R.anim.exit_to_left
+        )
+
+        if (replace)
+            fragmentTransaction.replace(
+                containerViewId,
+                fragment
+            )
+        else
+            fragmentTransaction.add(
+                containerViewId,
+                fragment
+            )
+
+        fragmentTransaction.addToBackStack(addToBackStack)
+
+        fragmentTransaction.commit()
     }
 
     fun performHapticFeedback(view: View) {

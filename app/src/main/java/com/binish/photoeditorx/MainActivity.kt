@@ -5,16 +5,14 @@ import android.graphics.BitmapFactory
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binish.photoeditorx.adapter.TextEditsAdapter
+import com.binish.photoeditorx.fragments.ImagePreviewFragment
 import com.binish.photoeditorx.models.StrokeProperties
 import com.binish.photoeditorx.photoeditor.*
 import com.binish.photoeditorx.utils.Utils
@@ -43,6 +41,28 @@ class MainActivity : AppCompatActivity() {
         setUpRotation()
         setUpTextAddition()
         setUpPhotoEditor()
+        setUpSave()
+    }
+
+    private fun setUpSave(){
+        imageButtonSave.setOnClickListener {
+            photoEditor.saveAsBitmap(object : OnSaveBitmap {
+                override fun onBitmapReady(saveBitmap: Bitmap?) {
+                    Utils.startFragment(
+                        ImagePreviewFragment.newInstance(saveBitmap),
+                        supportFragmentManager, R.id.mainActivityContainer,
+                        true,
+                        replace = false,
+                        addToBackStack = "ImagePreviewStack"
+                    )
+                }
+
+                override fun onFailure(e: Exception?) {
+                    Toast.makeText(this@MainActivity, "Error saving image", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            })
+        }
     }
 
     private fun setUpImage() {
