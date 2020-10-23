@@ -1,6 +1,6 @@
 # PhotoEditorX
 
-[![Downloads](https://img.shields.io/badge/Download-1.0.0-blue.svg)](https://binish.bintray.com/PhotoEditorX) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
+[ ![Download](https://api.bintray.com/packages/binish/PhotoEditorX/com.binish.photoeditorx/images/download.svg?version=1.0.0) ](https://bintray.com/binish/PhotoEditorX/com.binish.photoeditorx/1.0.0/link) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
 
 Helps you add Stickers, Texts, Images &amp; Emoji's over images and customize them
 
