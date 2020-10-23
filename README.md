@@ -215,3 +215,10 @@ To get a bitmap as a callback use:
                 }
             })
 ```
+
+## Credits
+This project is inspired from  
+1.[PhotoEditor](https://github.com/burhanrashid52/PhotoEditor)  
+2.[PhotoEditorSDK](https://github.com/eventtus/photo-editor-android)
+
+Most of the credit goes to `burhanrashid52`. Don't forget Thank him at [burhanrashid52](https://github.com/burhanrashid52)
