@@ -83,7 +83,7 @@ In order to edit the text we need the view, which we will receive in our PhotoEd
         });
   ```
 
-![](https://i.imgur.com/uFOrB3F.gif)
+![](https://i.imgur.com/uFOrB3F.gif)  
 Now we can edit the text with a view like this
 
 `mPhotoEditor.editText(rootView, inputText, colorCode)`
@@ -139,6 +139,7 @@ It will take default fonts provided in the builder. If we want different Emoji f
 
 
 ## Rotation
+![](https://i.imgur.com/6geZ7pc.gif)  
 In order to rotate the image/bitmap use `photoEditorView.rotate(rotateBy)`
 Example:
 ```kotlin
