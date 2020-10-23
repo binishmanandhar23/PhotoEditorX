@@ -1,4 +1,7 @@
 # PhotoEditorX
+
+[![Downloads](https://img.shields.io/badge/Download-1.0.0-blue.svg)](https://bintray.com/burhanrashid52/maven/photoeditor) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
+
 Helps you add Stickers, Texts, Images &amp; Emoji's over images and customize them
 
 ## Installation
