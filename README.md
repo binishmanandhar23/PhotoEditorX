@@ -1,6 +1,6 @@
 # PhotoEditorX
 
-[![Downloads](https://img.shields.io/badge/Download-1.0.0-blue.svg)](https://bintray.com/burhanrashid52/maven/photoeditor) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
+[![Downloads](https://img.shields.io/badge/Download-1.0.0-blue.svg)](https://binish.bintray.com/PhotoEditorX) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
 
 Helps you add Stickers, Texts, Images &amp; Emoji's over images and customize them
 
@@ -9,7 +9,7 @@ Helps you add Stickers, Texts, Images &amp; Emoji's over images and customize th
 Add the following dependencies in the gradle file of your app module to get started:
 
 ```kotlin
-implementation 'com.binish.photoeditorx'
+implementation 'com.binish.photoeditorx:photoeditorx:1.0.0'
 ```
 or if you want to further customize the module, simply import it.
 
