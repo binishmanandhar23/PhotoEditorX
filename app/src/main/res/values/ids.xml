@@ -7,4 +7,7 @@
     <item name="timeViewHourSecond" type="id"/>
     <item name="timeViewAmPm" type="id"/>
     <item name="stickerTime" type="id"/>
+
+    <item name="dateViewDate" type="id"/>
+    <item name="stickerDate" type="id"/>
 </resources>

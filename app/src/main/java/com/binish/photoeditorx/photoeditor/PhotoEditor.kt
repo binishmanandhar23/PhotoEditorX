@@ -33,6 +33,7 @@ import com.binish.photoeditorx.photoeditor.EnumClass.ViewType
 import com.binish.photoeditorx.photoeditor.EnumClass.PhotoFilter
 import com.binish.photoeditorx.photoeditor.EnumClass.ViewType.*
 import com.binish.photoeditorx.utils.Utils
+import com.binish.photoeditorx.views.DateView
 import com.binish.photoeditorx.views.TimeView
 
 
@@ -123,6 +124,11 @@ class PhotoEditor private constructor(builder: Builder) :
                         TimeView.TimerViewType.TYPE_1 -> view.changeView(TimeView.TimerViewType.TYPE_2)
                         TimeView.TimerViewType.TYPE_2 -> view.changeView(TimeView.TimerViewType.TYPE_1)
                         else -> view.changeView(TimeView.TimerViewType.TYPE_1)
+                    }
+                else if(view is DateView)
+                    when (view.dateType) {
+                        DateView.DateType.TYPE_1 -> view.changeType(DateView.DateType.TYPE_2)
+                        DateView.DateType.TYPE_2 -> view.changeType(DateView.DateType.TYPE_1)
                     }
             }
 

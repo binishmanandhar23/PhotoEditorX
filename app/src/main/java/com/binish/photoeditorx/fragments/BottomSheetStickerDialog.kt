@@ -15,13 +15,11 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.binish.photoeditorx.R
 import com.binish.photoeditorx.utils.Utils
+import com.binish.photoeditorx.views.DateView
 import com.binish.photoeditorx.views.TimeView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import jp.wasabeef.blurry.Blurry
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.layout_add_edit_text.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet_sticker_dialog.*
 
 class BottomSheetStickerDialog(val listener: BottomMapDetailFragmentInteraction) :
@@ -61,6 +59,7 @@ class BottomSheetStickerDialog(val listener: BottomMapDetailFragmentInteraction)
         }
 
         placeTimerView(TimeView(requireContext()))
+        placeDateView(DateView(requireContext()))
     }
 
     private fun placeTimerView(timeView: TimeView){
@@ -83,6 +82,30 @@ class BottomSheetStickerDialog(val listener: BottomMapDetailFragmentInteraction)
             val newTimerView = TimeView(requireContext())
             newTimerView.changeFont(typeFace)
             listener.onStickerTime(newTimerView) // You shouldn't pass a view with a parent attached, it complicates the multi-touch listener logic which is why we are creating a new TimerView Object
+            dismiss()
+        }
+    }
+    
+    private fun placeDateView(dateView: DateView){
+        dateView.changeFont(typeFace)
+        dateView.id = R.id.stickerDate
+        dateView.layoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, 100)
+        containerStickerDialog.addView(dateView)
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(containerStickerDialog)
+        constraintSet.connect(dateView.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
+        constraintSet.connect(dateView.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
+        constraintSet.connect(dateView.id, ConstraintSet.TOP, dummyDialogView.id, ConstraintSet.BOTTOM)
+        constraintSet.connect(dateView.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM)
+        constraintSet.setHorizontalBias(dateView.id,0.8f)
+        constraintSet.setVerticalBias(dateView.id,0.3f)
+        constraintSet.applyTo(containerStickerDialog)
+        
+        dateView.setOnClickListener {
+            Utils.pushInAnimation(it, requireContext())
+            val newDateView = DateView(requireContext())
+            newDateView.changeFont(typeFace)
+            listener.onStickerTime(newDateView) // You shouldn't pass a view with a parent attached, it complicates the multi-touch listener logic which is why we are creating a new DateView Object
             dismiss()
         }
     }
