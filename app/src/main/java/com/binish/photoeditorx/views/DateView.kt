@@ -45,7 +45,7 @@ class DateView: ConstraintLayout {
         addView(textView)
     }
 
-    fun changeType(dateType: DateType){
+    fun changeView(dateType: DateType){
         removeAllViews()
         this.dateType= dateType
         initialize()

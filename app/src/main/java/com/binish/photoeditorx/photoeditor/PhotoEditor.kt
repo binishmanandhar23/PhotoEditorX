@@ -23,7 +23,6 @@ import androidx.annotation.IntRange
 import androidx.annotation.RequiresPermission
 import androidx.annotation.UiThread
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.marginStart
 import androidx.core.view.setMargins
 import com.binish.photoeditorx.R
 import java.io.File
@@ -127,8 +126,8 @@ class PhotoEditor private constructor(builder: Builder) :
                     }
                 else if(view is DateView)
                     when (view.dateType) {
-                        DateView.DateType.TYPE_1 -> view.changeType(DateView.DateType.TYPE_2)
-                        DateView.DateType.TYPE_2 -> view.changeType(DateView.DateType.TYPE_1)
+                        DateView.DateType.TYPE_1 -> view.changeView(DateView.DateType.TYPE_2)
+                        DateView.DateType.TYPE_2 -> view.changeView(DateView.DateType.TYPE_1)
                     }
             }
 
