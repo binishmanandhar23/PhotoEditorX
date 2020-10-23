@@ -39,14 +39,14 @@ To use the image editing feature we need to build a PhotoEditor which requires a
 
 ```kotlin
 //Use custom font using latest support library
-val mTextRobotoTf = ResourcesCompat.getFont(this, R.font.TTCommonBold.otf)
+val mTTCommonBoldTf = ResourcesCompat.getFont(this, R.font.TTCommonBold.otf)
 
 //loading font from assest
 val mEmojiTypeFace = Typeface.createFromAsset(getAssets(), "fonts/editFonts/TTCommonBold.otf")
 
 val mPhotoEditor = PhotoEditor.Builder(this, mPhotoEditorView)
          .setPinchTextScalable(true)
-         .setDefaultTextTypeface(mTextRobotoTf)
+         .setDefaultTextTypeface(mTTCommonBoldTf)
          .build()
  ```
 
@@ -86,4 +86,108 @@ Now we can edit the text with a view like this
 
 `mPhotoEditor.editText(rootView, inputText, colorCode)`
 
+**More Customization**
+    For more further customization of texts it is better to build a `TextStyleBuilder()` object & pass it to the `addText()` or `editText()` along with the text
+```kotlin
+val textStyle = TextStyleBuilder()
+        textStyle.withTextFont(mTTCommonBoldTf)
+        textStyle.withTextColor(Color.WHITE)
+        textStyle.withTextSize(12f)
+        textStyle.withTextAlign(TextView.TEXT_ALIGNMENT_TEXT_START)
+```
+For adding strokes and stroke colors:
+```kotlin
+    textStyle.withStrokeWidthColor(StrokeProperties(strokeWidth,strokeColor))
+```
+For adding inner and outer shadows:
+```kotlin
+    textStyle.withInnerShadow(StrokeProperties(Shadow(r,dx,dy,color), ShadowType.INNER))
+    textStyle.withOuterShadow(StrokeProperties(Shadow(r,dx,dy,color), ShadowType.OUTER))
+```
 
+## Emoji
+
+![](https://i.imgur.com/RP8kqz6.gif)
+
+We can add the Emoji by `PhotoEditor.getEmojis(getActivity());` which will return a list of emojis unicode.
+
+`mPhotoEditor.addEmoji(emojiUnicode);`
+
+It will take default fonts provided in the builder. If we want different Emoji fonts for different emoji we can set typeface with each Emoji like this
+
+`mPhotoEditor.addEmoji(mEmojiTypeface,emojiUnicode);`
+
+**For more information on Emojis:**
+[WIKI](https://github.com/burhanrashid52/PhotoEditor/wiki/Emoji)
+
+
+## Adding Images/Stickers
+ We need to provide a Bitmap to add our Images  `mPhotoEditor.addImage(bitmap);`
+
+ To add dynamic stickers such as Current Time or Date we need to use `photoEditor.addDynamicSticker(TimeView(requireContext())` for time or `photoEditor.addDynamicSticker(DateView(requireContext())` for date
+
+
+## Filter Effect
+We can apply inbuild filter to the source images using
+
+ `mPhotoEditor.setFilterEffect(PhotoFilter.BRIGHTNESS);`
+
+![](https://i.imgur.com/xXTGcVC.gif)
+
+We can also apply custom effect using `Custom.Builder`
+
+For more details check [Custom Filters](https://github.com/burhanrashid52/PhotoEditor/wiki/Filter-Effect)
+
+
+## Undo and Redo
+
+![](https://i.imgur.com/1Y9WcCB.gif)
+
+```kotlin
+   mPhotoEditor.undo()
+   mPhotoEditor.redo()
+```
+
+## Deleting
+For deleting, there is a separate view that needs to be added
+```xml
+<com.binish.photoeditorx.views.DeleteView
+        android:id="@+id/viewDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"/>
+```
+and then we can use `viewDelete.onShowDeleteView(view, isInProgress, rawX, rawY)` to bring up the deleteView(it's hidden by default),
+to hide it `viewDelete.onHideDeleteView(photoEditor, view, rawX, rawY)`
+
+It is advised to place these on `onMoveViewChangeListener` & `onStopViewChangeListener` to get desired effect.  
+************Be sure to check the EXAMPLE on `MainActivity` for better understanding************
+
+
+## Saving
+   We need to provide a file with callback method when edited image is saved
+
+```kotlin
+    mPhotoEditor.saveAsFile(filePath, object: PhotoEditor.OnSaveListener {
+                    override fun onSuccess(imagePath: String) {
+                       Log.e("PhotoEditor","Image Saved Successfully");
+                    }
+
+                    @Override
+                    override fun onFailure(exception: Exception) {
+                        Log.e("PhotoEditor","Failed to save Image");
+                    }
+                });
+```
+To get a bitmap as a callback use:
+```kotlin
+    photoEditor.saveAsBitmap(object : OnSaveBitmap {
+                override fun onBitmapReady(saveBitmap: Bitmap?) {
+                   
+                }
+
+                override fun onFailure(e: Exception?) {
+                    
+                }
+            })
+```
