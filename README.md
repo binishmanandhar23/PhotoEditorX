@@ -133,6 +133,8 @@ It will take default fonts provided in the builder. If we want different Emoji f
  `timeView.changeView(TimeView.TimerViewType.TYPE_1 or TimeView.TimerViewType.TYPE_2)` for TimeView  
  `dateView.changeView(DateView.DateType.TYPE_1 or DateView.DateType.TYPE_2)` for DateView
 
+ To change fonts for these views use `timeView.changeFont(typeface)` for TimeView & `dateView.changeFont(typeface)` for DateView
+
 
 ## Rotation
 In order to rotate the image/bitmap use `photoEditorView.rotate(rotateBy)`
