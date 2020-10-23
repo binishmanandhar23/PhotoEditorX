@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpSave(){
         imageButtonSave.setOnClickListener {
+            //*Or you can use photoEditor.saveAsFile()*//
+
             photoEditor.saveAsBitmap(object : OnSaveBitmap {
                 override fun onBitmapReady(saveBitmap: Bitmap?) {
                     Utils.startFragment(
