@@ -63,7 +63,7 @@ That's it we are done with setting up our library
 
 ## Text
 
-![Imgur](https://imgur.com/x7wRm0s)
+![Imgur](https://i.imgur.com/x7wRm0s.gif)
 
 We can add the text with inputText and colorCode like this
 
