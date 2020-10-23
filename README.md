@@ -86,8 +86,8 @@ Now we can edit the text with a view like this
 
 `mPhotoEditor.editText(rootView, inputText, colorCode)`
 
-**More Customization**
-    For more further customization of texts it is better to build a `TextStyleBuilder()` object & pass it to the `addText()` or `editText()` along with the text
+**More Customization**  
+For more further customization of texts it is better to build a `TextStyleBuilder()` object & pass it to the `addText()` or `editText()` along with the text
 ```kotlin
 val textStyle = TextStyleBuilder()
         textStyle.withTextFont(mTTCommonBoldTf)
@@ -124,8 +124,23 @@ It will take default fonts provided in the builder. If we want different Emoji f
 ## Adding Images/Stickers
  We need to provide a Bitmap to add our Images  `mPhotoEditor.addImage(bitmap);`
 
- To add dynamic stickers such as Current Time or Date we need to use `photoEditor.addDynamicSticker(TimeView(requireContext())` for time or `photoEditor.addDynamicSticker(DateView(requireContext())` for date
+ To add dynamic stickers such as Current Time or Date we need to use  
+ `photoEditor.addDynamicSticker(TimeView(requireContext())` for time  
+ or  
+ `photoEditor.addDynamicSticker(DateView(requireContext())` for date.  
+ There are two types of design for each of the above view, you can toggle between the types by clicking on the view(Time/Date)  
+ or, to manually change them use
+ `timeView.changeView(TimeView.TimerViewType.TYPE_1 or TimeView.TimerViewType.TYPE_2)` for TimeView
+ `dateView.changeView(DateView.DateType.TYPE_1 or DateView.DateType.TYPE_2)` for DateView
 
+
+## Rotation
+In order to rotate the image/bitmap use `photoEditorView.rotate(rotateBy)`
+Example:
+```kotlin
+val rotateBy = PhotoEditorView.Rotation.ROTATE_0 or PhotoEditorView.Rotation.ROTATE_90 or PhotoEditorView.Rotation.ROTATE_180 or PhotoEditorView.Rotation.ROTATE_270
+photoEditorView.rotate(rotateBy)
+```
 
 ## Filter Effect
 We can apply inbuild filter to the source images using
