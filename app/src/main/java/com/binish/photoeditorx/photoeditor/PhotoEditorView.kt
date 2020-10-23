@@ -3,6 +3,7 @@ package com.binish.photoeditorx.photoeditor
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.util.AttributeSet
 import android.util.Log
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.binish.photoeditorx.R
 import com.binish.photoeditorx.photoeditor.FilterImageView.OnImageChangedListener
 import com.binish.photoeditorx.photoeditor.EnumClass.PhotoFilter.*
 import com.binish.photoeditorx.photoeditor.EnumClass.PhotoFilter
+import com.binish.photoeditorx.utils.Utils
 
 
 /**
@@ -150,10 +152,31 @@ class PhotoEditorView : RelativeLayout {
         mImageFilterView?.setFilterEffect(customEffect)
     }
 
+    fun rotate(rotate: Rotation) {
+        if (mImgSource?.bitmap != null)
+            source?.setImageBitmap(
+                Utils.rotateBitmap(
+                    mImgSource?.bitmap!!, when (rotate) {
+                        Rotation.ROTATE_0 -> 0f
+                        Rotation.ROTATE_90 -> 90f
+                        Rotation.ROTATE_180 -> 180f
+                        Rotation.ROTATE_270 -> 270f
+                    }
+                )
+            )
+    }
+
     companion object {
         private const val TAG = "PhotoEditorView"
         private const val imgSrcId = 1
         private const val brushSrcId = 2
         private const val glFilterId = 3
+    }
+
+    enum class Rotation {
+        ROTATE_0,
+        ROTATE_90,
+        ROTATE_180,
+        ROTATE_270,
     }
 }

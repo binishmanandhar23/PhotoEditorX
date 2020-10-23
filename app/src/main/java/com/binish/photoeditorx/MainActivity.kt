@@ -24,8 +24,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_add_edit_text.*
 
 class MainActivity : AppCompatActivity() {
-    private var imageRotation = 0f
-    private val imageBitmap = MutableLiveData<Bitmap>()
     private lateinit var ttCommonBold: Typeface
     private var textSize = 32f
     private var strokeWidth = 0f
@@ -356,41 +354,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpRotation() {
         imageButtonRotateLeft.setOnClickListener {
-            imageRotation = when (imageRotation) {
-                0f -> 270f
-                90f -> 0f
-                180f -> 90f
-                270f -> 180f
-                else -> 270f
-            }
-            rotateWork()
+            photoEditorView.rotate(PhotoEditorView.Rotation.ROTATE_270)
         }
         imageButtonRotateRight.setOnClickListener {
-            imageRotation = when (imageRotation) {
-                0f -> 90f
-                90f -> 180f
-                180f -> 270f
-                270f -> 0f
-                else -> 90f
-            }
-            rotateWork()
+            photoEditorView.rotate(PhotoEditorView.Rotation.ROTATE_90)
         }
-        imageBitmap.observe(this, Observer {
-            photoEditorView.source?.setImageBitmap(it)
-        })
-    }
-
-    private fun rotateWork() {
-        Thread {
-            imageBitmap.postValue(
-                Utils.rotateBitmap(
-                    BitmapFactory.decodeResource(
-                        resources,
-                        R.drawable.default_image
-                    ), imageRotation
-                )
-            )
-        }.start()
     }
 
     override fun onResume() {
