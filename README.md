@@ -171,6 +171,8 @@ For more details check [Custom Filters](https://github.com/burhanrashid52/PhotoE
 ```
 
 ## Deleting
+
+![](https://i.imgur.com/alruL0i.gif)  
 For deleting, there is a separate view that needs to be added
 ```xml
 <com.binish.photoeditorx.views.DeleteView
