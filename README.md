@@ -129,8 +129,8 @@ It will take default fonts provided in the builder. If we want different Emoji f
  or  
  `photoEditor.addDynamicSticker(DateView(requireContext())` for date.  
  There are two types of design for each of the above view, you can toggle between the types by clicking on the view(Time/Date)  
- or, to manually change them use
- `timeView.changeView(TimeView.TimerViewType.TYPE_1 or TimeView.TimerViewType.TYPE_2)` for TimeView
+ or, to manually change them use  
+ `timeView.changeView(TimeView.TimerViewType.TYPE_1 or TimeView.TimerViewType.TYPE_2)` for TimeView  
  `dateView.changeView(DateView.DateType.TYPE_1 or DateView.DateType.TYPE_2)` for DateView
 
 
