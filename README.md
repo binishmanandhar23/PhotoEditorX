@@ -6,11 +6,22 @@ Helps you add Stickers, Texts, Images & Emoji's over images and customize them
 
 ## Installation
 
-Add the following dependencies in the gradle file of your app module to get started:
+Add the following dependencies in the gradle file of your app module to get started:  
 
+Gradle
 ```kotlin
 implementation 'com.binish.photoeditorx:photoeditorx:1.0.1'
 ```
+Maven
+```xml
+<dependency>
+  <groupId>com.binish.photoeditorx</groupId>
+  <artifactId>photoeditorx</artifactId>
+  <version>1.0.1</version>
+  <type>pom</type>
+</dependency>
+```
+
 or if you want to further customize the module, simply import it.
 
 ## Setting up the View
