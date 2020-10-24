@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--first phase colors-->
+    <color name="color_white_dark">#fafafc</color>
+    <color name="color_red">#FF2323</color>
+    <color name="color_light_red">#ff4545</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_white_disabled">#9EFFFFFF</color>
+    <color name="color_white_coming_medication">#fafcff</color>
+    <color name="color_green">#94ad43</color>
+    <color name="color_blue">#5a82df</color>
+    <color name="color_theme_text">@color/color_black</color>
+    <color name="color_theme_text_white">@color/color_white</color>
+    <color name="color_theme_text_purple">@color/color_purple</color>
+    <color name="color_theme_text_purple_light">@color/color_purple_light</color>
+    <color name="color_theme_text_gray">@color/color_gray</color>
+    <color name="color_theme_text_dark_gray">@color/color_gray_dark</color>
+    <color name="color_theme_text_bluish">@color/colorBluish</color>
+    <color name="color_theme_text_bluish_coming_medicine">#599494</color>
+    <color name="color_black">#000000</color>
+    <color name="color_black_transparent">#63000000</color>
+    <color name="color_black_two">#212121</color>
+    <color name="color_black_three">#3b3b3b</color>
+    <color name="color_black_l">#050505</color>
+    <color name="color_black_light">#6f7688</color>
+    <color name="color_bluish_dark">#034b50</color>
+    <color name="color_article_detail_fill">@color/colorLightPeach</color>
+    <color name="color_article_free_text">#a3a3a3</color>
+
+    <color name="color_theme">@color/color_purple</color>
+    <color name="color_pink">#ff4b95</color>
+    <color name="color_pink_dark">#ff2164</color>
+
+    <color name="color_pink_light">#fa98c1</color>
+
+    <color name="color_transparent">#0000ffff</color>
+    <color name="color_placeholder">#50ffffff</color>
+
+    <color name="color_grey">#33FFFFFF</color>
+    <color name="color_transparent_grey">#40000000</color>
+    <color name="color_transparent_white">#36FFFFFF</color>
+    <color name="color_transparent_content">#0d379696</color>
+
+    <color name="color_feedback_grey">#e9e9e9</color>
+    <color name="color_gray">#e2e6f0</color>
+    <color name="color_light_gray">#FAFCFF</color>
+    <color name="color_light_gray_progress">#e6e9f0</color>
+    <color name="color_gray_dark">#909090</color>
+    <color name="color_grey_dark">#6f7688</color>
+    <color name="color_grey_notification">#d1d4da</color>
+    <color name="color_grey_faint">#a2a2a2</color>
+    <color name="color_blue_hint">#aab7d4</color>
+
+    <color name="color_purple_unselected">#776450A5</color>
+    <color name="color_purple">#6450a5</color>
+    <color name="color_purple_light">#a48fe7</color>
+    <color name="color_purple_light_tranparent">#0Da48fe7</color>
+    <color name="color_purple_dark">#412d6e</color>
+    <color name="color_purple_faq">#6552a2</color>
+    <color name="color_purple_faint">#b1a7d2</color>
+
+    <color name="search_box">#B1A7D0</color>
+    <color name="colorBluish">#379696</color>
+    <color name="color_bg_flower">#edf2ff</color>
+    <color name="color_orange">#ff9169</color>
+
+    <color name="color_pale_purple">#b1a7d2</color>
+    <color name="color_light_lavender">#d8d3e8</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#14a895</color>
+    <color name="dot_dark_screen2">#2278d4</color>
+    <color name="dot_dark_screen3">#a854d4</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#8cf9eb</color>
+    <color name="dot_light_screen2">#93c6fd</color>
+    <color name="dot_light_screen3">#e4b5fc</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+    </array>
+
+
+    <color name="colorDarkTeal">#034b50</color>
+    <color name="colorSea">#359596</color>
+    <color name="colorSeaTwo">#318889</color>
+    <color name="colorTwilight">@color/color_purple_faq</color>
+    <color name="colorBrownGrey">#969696</color>
+    <color name="colorDarkGreyBlue">#332951</color>
+    <color name="colorLightGreyBlue">#a8cecf</color>
+    <color name="colorDustyTeal">#509d9e</color>
+    <color name="colorIceBlue">#f5fafa</color>
+    <color name="colorLightPeach">#ffcdaa</color>
+    <color name="colorEditButtonBlack">#333333</color>
+</resources>

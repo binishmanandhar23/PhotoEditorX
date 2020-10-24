@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <com.binish.photoeditorx.views.CustomImageButton
+    <com.binish.sample.photoeditorx.views.CustomImageButton
         android:id="@+id/imageViewEditPreviewBack"
         android:layout_width="45dp"
         android:layout_height="45dp"

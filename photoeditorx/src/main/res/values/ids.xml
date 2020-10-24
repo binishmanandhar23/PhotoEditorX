@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="layoutEdit" type="id"/>
+    <item name="editImageDeleteLayout" type="id"/>
+    <item name="imageViewEditImageDelete" type="id"/>
+
+    <item name="timeViewHourSecond" type="id"/>
+    <item name="timeViewAmPm" type="id"/>
+    <item name="stickerTime" type="id"/>
+
+    <item name="dateViewDate" type="id"/>
+    <item name="stickerDate" type="id"/>
+</resources>

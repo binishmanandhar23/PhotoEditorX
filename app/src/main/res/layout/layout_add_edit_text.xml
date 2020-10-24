@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
-        <com.binish.photoeditorx.views.CustomImageButton
+        <com.binish.sample.photoeditorx.views.CustomImageButton
             android:id="@+id/textViewAlignForEdit"
             android:layout_width="25dp"
             android:layout_height="25dp"
@@ -35,7 +35,7 @@
             />
 
 
-        <com.binish.photoeditorx.views.CustomTextView
+        <com.binish.sample.photoeditorx.views.CustomTextView
             android:id="@+id/textViewJustifyAlignForEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             app:layout_constraintHorizontal_bias="0.03"
             />
 
-        <com.binish.photoeditorx.views.CustomTextView
+        <com.binish.sample.photoeditorx.views.CustomTextView
             android:id="@+id/textViewDoneForEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             app:layout_constraintHorizontal_bias="0.88"
             />
 
-        <com.binish.photoeditorx.views.CustomEditText
+        <com.binish.sample.photoeditorx.views.CustomEditText
             android:id="@+id/editViewForEdit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
-        <com.binish.photoeditorx.views.CustomImageButton
+        <com.binish.sample.photoeditorx.views.CustomImageButton
             android:id="@+id/imageButtonColorTextPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
             app:layout_constraintVertical_bias="1"
             />
 
-        <com.binish.photoeditorx.views.VerticalSeekBar
+        <com.binish.sample.photoeditorx.views.VerticalSeekBar
             android:id="@+id/seekBarFontSizeForEdit"
             android:layout_width="wrap_content"
             android:layout_height="200dp"

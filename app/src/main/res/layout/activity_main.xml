@@ -16,7 +16,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.binish.photoeditorx.views.CustomImageButton
+    <com.binish.sample.photoeditorx.views.CustomImageButton
         android:id="@+id/imageButtonRotateLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.15"
         />
 
-    <com.binish.photoeditorx.views.CustomImageButton
+    <com.binish.sample.photoeditorx.views.CustomImageButton
         android:id="@+id/imageButtonRotateRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.05"
         />
 
-    <com.binish.photoeditorx.views.CustomImageButton
+    <com.binish.sample.photoeditorx.views.CustomImageButton
         android:id="@+id/imageButtonStickers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
         app:layout_constraintHorizontal_bias="0.74"
         />
 
-    <com.binish.photoeditorx.views.CustomImageButton
+    <com.binish.sample.photoeditorx.views.CustomImageButton
         android:id="@+id/imageButtonSave"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
