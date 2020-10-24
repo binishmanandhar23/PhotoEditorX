@@ -225,3 +225,11 @@ This project is inspired from
 2. [PhotoEditorSDK](https://github.com/eventtus/photo-editor-android)
 
 Most of the credit goes to `burhanrashid52`. Don't forget Thank him at [burhanrashid52](https://github.com/burhanrashid52)
+
+
+## Contributions
+
+If you want to contribute or just wanna say Hi!, you can find me at:
+1. [LinkedIn](https://www.linkedin.com/in/binish-manandhar-3136621b2/)
+2. [Facebook](https://www.facebook.com/binish.manandhar)
+3. [Twitter](https://twitter.com/NotBinish)
