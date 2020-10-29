@@ -16,7 +16,7 @@ ext {
     siteUrl = 'https://github.com/binishmanandhar23/PhotoEditorX'    // git repo url
     gitUrl = 'https://github.com/binishmanandhar23/PhotoEditorX.git' // git repo vcs url
 
-    libraryVersion = '1.0.1'      // library version
+    libraryVersion = '1.0.2'      // library version
 
     developerId = 'binishmanandhar23'                // This is your bintray username
     developerName = 'Binish Manandhar'              // Developer's name
