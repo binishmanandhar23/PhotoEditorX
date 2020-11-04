@@ -170,6 +170,9 @@ class MainActivity : AppCompatActivity() {
                     viewDelete.onShowDeleteView(view, isInProgress, rawX, rawY)
             }
 
+            override fun onViewClicked(view: View?) {
+
+            }
         })
     }
 

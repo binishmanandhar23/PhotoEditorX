@@ -83,6 +83,7 @@ class PhotoEditor private constructor(builder: Builder) :
                 imgClose.visibility = if (isBackgroundVisible) View.GONE else View.GONE
                 frmBorder.tag = !isBackgroundVisible
                 Utils.pushInAnimation(imageView, context)
+                mOnPhotoEditorListener?.onViewClicked(imageView)
             }
 
             override fun onLongClick() {}
@@ -129,6 +130,7 @@ class PhotoEditor private constructor(builder: Builder) :
                         DateView.DateType.TYPE_1 -> view.changeView(DateView.DateType.TYPE_2)
                         DateView.DateType.TYPE_2 -> view.changeView(DateView.DateType.TYPE_1)
                     }
+                mOnPhotoEditorListener?.onViewClicked(view)
             }
 
             override fun onLongClick() {}
@@ -215,6 +217,7 @@ class PhotoEditor private constructor(builder: Builder) :
                 imgClose.visibility = if (isBackgroundVisible) View.GONE else View.GONE
                 frmBorder.tag = !isBackgroundVisible
                 Utils.pushInAnimation(textInputTv, context)
+                mOnPhotoEditorListener?.onViewClicked(textInputTv)
             }
 
             override fun onLongClick() {
@@ -330,6 +333,7 @@ class PhotoEditor private constructor(builder: Builder) :
                 imgClose.visibility = if (isBackgroundVisible) View.GONE else View.VISIBLE
                 frmBorder.tag = !isBackgroundVisible
                 Utils.pushInAnimation(emojiTextView, context)
+                mOnPhotoEditorListener?.onViewClicked(emojiTextView)
             }
 
             override fun onLongClick() {}

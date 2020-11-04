@@ -68,4 +68,6 @@ interface OnPhotoEditorListener {
     )
 
     fun onMoveViewChangeListener(view: View?, isInProgress: Boolean, rawX: Int, rawY: Int)
+
+    fun onViewClicked(view:View?)
 }
