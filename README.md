@@ -1,6 +1,6 @@
 # PhotoEditorX
 
-[ ![Download](https://api.bintray.com/packages/binishmanandhar23/PhotoEditorX/com.binish.photoeditorx/images/download.svg?version=1.0.2) ](https://bintray.com/binishmanandhar23/PhotoEditorX/com.binish.photoeditorx/1.0.2/link) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
+[ ![Download](https://api.bintray.com/packages/binishmanandhar23/PhotoEditorX/com.binish.photoeditorx/images/download.svg?version=1.0.3) ](https://bintray.com/binishmanandhar23/PhotoEditorX/com.binish.photoeditorx/1.0.3/link) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
 
 Helps you add Stickers, Texts, Images & Emoji's over images and customize them
 
@@ -10,14 +10,14 @@ Add the following dependencies in the gradle file of your app module to get star
 
 Gradle
 ```kotlin
-implementation 'com.binish.photoeditorx:photoeditorx:1.0.2'
+implementation 'com.binish.photoeditorx:photoeditorx:1.0.3'
 ```
 Maven
 ```xml
 <dependency>
   <groupId>com.binish.photoeditorx</groupId>
   <artifactId>photoeditorx</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <type>pom</type>
 </dependency>
 ```
@@ -235,7 +235,7 @@ This project is inspired from
 1. [PhotoEditor](https://github.com/burhanrashid52/PhotoEditor)
 2. [PhotoEditorSDK](https://github.com/eventtus/photo-editor-android)
 
-Most of the credit goes to `burhanrashid52`. Don't forget Thank him at [burhanrashid52](https://github.com/burhanrashid52)
+Most of the credit goes to `burhanrashid52`. Don't forget to Thank him at [burhanrashid52](https://github.com/burhanrashid52)
 
 
 ## Contributions

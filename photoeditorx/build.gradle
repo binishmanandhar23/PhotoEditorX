@@ -16,7 +16,7 @@ ext {
     siteUrl = 'https://github.com/binishmanandhar23/PhotoEditorX'    // git repo url
     gitUrl = 'https://github.com/binishmanandhar23/PhotoEditorX.git' // git repo vcs url
 
-    libraryVersion = '1.0.2'      // library version
+    libraryVersion = '1.0.3'      // library version
 
     developerId = 'binishmanandhar23'                // This is your bintray username
     developerName = 'Binish Manandhar'              // Developer's name
@@ -63,7 +63,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'jp.wasabeef:blurry:4.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
