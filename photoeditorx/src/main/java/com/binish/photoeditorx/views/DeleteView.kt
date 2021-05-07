@@ -15,75 +15,119 @@ import com.binish.photoeditorx.photoeditor.EnumClass
 import com.binish.photoeditorx.photoeditor.PhotoEditor
 import com.binish.photoeditorx.utils.Utils
 
-class DeleteView: MotionLayout {
+class DeleteView : MotionLayout {
     private lateinit var imageView: ImageView
     private var isVibrated = false
+    private var canDeleteVibrate = true
     private var isScaled = false
     private var deleteDrawableClose = R.drawable.ic_camera_delete
     private var deleteDrawableOpen = R.drawable.ic_camera_delete_open
+    private var bottomPadding: Int? = 80
+
     constructor(context: Context) : super(context) {
         initialize()
     }
+
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
         context,
         attrs,
         defStyle
     ) {
-        initialize()
+        initialize(attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        initialize()
+        initialize(attrs)
     }
 
-    private fun initialize(){
+    private fun initialize(attrs: AttributeSet? = null) {
+        if(attrs != null) {
+            val styles = context.obtainStyledAttributes(attrs, R.styleable.DeleteView)
+            bottomPadding = Utils.dp2px(styles.getDimension(R.styleable.DeleteView_bottomPadding, 80f))
+            styles.recycle()
+        }
         loadLayoutDescription(R.xml.edit_image_delete_scene)
         setTransition(R.id.editImageDeleteScene)
         firstConstraintLayout()
     }
 
-    fun changeDeleteButton(defaultResId: Int, openedResId: Int){
+    fun changeDeleteButton(defaultResId: Int, openedResId: Int) {
         deleteDrawableClose = defaultResId
         deleteDrawableOpen = openedResId
     }
 
-    private fun firstConstraintLayout(){
+    private fun firstConstraintLayout() {
         val constraintLayout = ConstraintLayout(context)
         val params = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         constraintLayout.id = R.id.editImageDeleteLayout
         constraintLayout.layoutParams = params
         constraintLayout.elevation = 10f
-        constraintLayout.setPadding(80,0,80,80)
+        constraintLayout.setPadding(80, 0, 80, bottomPadding?: 80)
         constraintLayout.setBackgroundResource(R.drawable.transparent_gradient)
         addView(constraintLayout)
         val constraintSet = ConstraintSet()
         constraintSet.clone(this)
-        constraintSet.connect(constraintLayout.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
-        constraintSet.connect(constraintLayout.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
-        constraintSet.connect(constraintLayout.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM)
+        constraintSet.connect(
+            constraintLayout.id,
+            ConstraintSet.START,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.START
+        )
+        constraintSet.connect(
+            constraintLayout.id,
+            ConstraintSet.END,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.END
+        )
+        constraintSet.connect(
+            constraintLayout.id,
+            ConstraintSet.BOTTOM,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.BOTTOM
+        )
         constraintSet.applyTo(this)
 
         firstImageView(constraintLayout)
     }
 
-    private fun firstImageView(constraintLayout: ConstraintLayout){
+    private fun firstImageView(constraintLayout: ConstraintLayout) {
         imageView = ImageView(context)
         imageView.id = R.id.imageViewEditImageDelete
         imageView.layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        imageView.setPadding(20,20,20,20)
+        imageView.setPadding(20, 20, 20, 20)
         imageView.setImageResource(deleteDrawableClose)
         constraintLayout.addView(imageView)
 
         val imageViewSet = ConstraintSet()
         imageViewSet.clone(constraintLayout)
-        imageViewSet.connect(imageView.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
-        imageViewSet.connect(imageView.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
-        imageViewSet.connect(imageView.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
-        imageViewSet.connect(imageView.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM)
+        imageViewSet.connect(
+            imageView.id,
+            ConstraintSet.START,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.START
+        )
+        imageViewSet.connect(
+            imageView.id,
+            ConstraintSet.END,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.END
+        )
+        imageViewSet.connect(
+            imageView.id,
+            ConstraintSet.TOP,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.TOP
+        )
+        imageViewSet.connect(
+            imageView.id,
+            ConstraintSet.BOTTOM,
+            ConstraintSet.PARENT_ID,
+            ConstraintSet.BOTTOM
+        )
         imageViewSet.applyTo(constraintLayout)
     }
-    
-    fun onHideDeleteView(photoEditor: PhotoEditor, view: View, rawX: Int, rawY: Int){
+
+    fun onHideDeleteView(photoEditor: PhotoEditor, view: View, rawX: Int, rawY: Int) {
         transitionToStart()
         if (Utils.isViewInBounds(imageView, rawX, rawY)) {
             Utils.pushInAnimation(imageView, context)
@@ -92,8 +136,8 @@ class DeleteView: MotionLayout {
             photoEditor.viewUndo(view, (view.tag) as EnumClass.ViewType)
         }
     }
-    
-    fun onShowDeleteView(view: View,isInProgress: Boolean, rawX: Int, rawY: Int){
+
+    fun onShowDeleteView(view: View, isInProgress: Boolean, rawX: Int, rawY: Int) {
         if (currentState == startState && !isInProgress)
             transitionToEnd()
         else if (currentState == endState && isInProgress)
@@ -107,12 +151,17 @@ class DeleteView: MotionLayout {
                 isScaled = true
             }
         } else if (Utils.isViewInBounds(imageView, rawX, rawY)) {
+            if (canDeleteVibrate) {
+                Utils.performHapticFeedback(imageView)
+                canDeleteVibrate = !canDeleteVibrate
+            }
             imageView.setImageResource(deleteDrawableOpen)
             if (!isScaled) {
                 scaleImageForDeletion(view, true)
                 isScaled = true
             }
         } else {
+            canDeleteVibrate = true
             imageView.setImageResource(deleteDrawableClose)
             if (isScaled) {
                 scaleImageForDeletion(view, false)

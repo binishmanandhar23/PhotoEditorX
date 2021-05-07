@@ -4,6 +4,10 @@
         <attr name="photo_src" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="DeleteView">
+        <attr name="bottomPadding" format="dimension" />
+    </declare-styleable>
+
     <declare-styleable name="MagicTextView">
         <attr name="innerShadowColor" format="color"/>
         <attr name="innerShadowRadius" format="dimension"/>
