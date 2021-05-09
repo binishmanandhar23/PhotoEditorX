@@ -1,6 +1,6 @@
 # PhotoEditorX
 
-[ ![Download](https://api.bintray.com/packages/binishmanandhar23/PhotoEditorX/com.binish.photoeditorx/images/download.svg?version=1.0.4) ](https://bintray.com/binishmanandhar23/PhotoEditorX/com.binish.photoeditorx/1.0.4/link) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
+[ ![Download](https://api.bintray.com/packages/binishmanandhar23/PhotoEditorX/com.binish.photoeditorx/images/download.svg?version=1.0.5) ](https://bintray.com/binishmanandhar23/PhotoEditorX/com.binish.photoeditorx/1.0.5/link) ![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg)
 
 Helps you add Stickers, Texts, Images & Emoji's over images and customize them
 
@@ -10,14 +10,14 @@ Add the following dependencies in the gradle file of your app module to get star
 
 Gradle
 ```kotlin
-implementation 'com.binish.photoeditorx:photoeditorx:1.0.4'
+implementation 'io.github.binishmanandhar23.photoeditorx:photoeditorx:1.0.5'
 ```
 Maven
 ```xml
 <dependency>
-  <groupId>com.binish.photoeditorx</groupId>
+  <groupId>io.github.binishmanandhar23.photoeditorx</groupId>
   <artifactId>photoeditorx</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <type>pom</type>
 </dependency>
 ```
