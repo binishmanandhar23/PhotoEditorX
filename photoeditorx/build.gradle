@@ -1,13 +1,14 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'com.vanniktech.maven.publish'
 }
 
 ext {
     bintrayRepo = 'PhotoEditorX' // Repo name in bintray dashboard
-    bintrayName = 'com.binish.photoeditorx' // package name of the bintray repo
+    bintrayName = 'io.github.binishmanandhar23.photoeditorx' // package name of the bintray repo
 
-    publishedGroupId = 'com.binish.photoeditorx'   // this is the ID we want to see in implementation line
+    publishedGroupId = 'io.github.binishmanandhar23.photoeditorx'   // this is the ID we want to see in implementation line
     libraryName = 'photoeditorx'     // this is the module name of library
     artifact = 'photoeditorx'        // this is the artifact we want to see in implementation line
 
@@ -16,7 +17,7 @@ ext {
     siteUrl = 'https://github.com/binishmanandhar23/PhotoEditorX'    // git repo url
     gitUrl = 'https://github.com/binishmanandhar23/PhotoEditorX.git' // git repo vcs url
 
-    libraryVersion = '1.0.4'      // library version
+    libraryVersion = '1.0.5'      // library version
 
     developerId = 'binishmanandhar23'                // This is your bintray username
     developerName = 'Binish Manandhar'              // Developer's name
@@ -73,3 +74,4 @@ dependencies {
 apply from: 'publish.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
